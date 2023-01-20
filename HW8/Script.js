@@ -1,10 +1,4 @@
 
-// const age = Number(prompt('рік народження?'))
-// calcAge = 2023 - age
-// const contry = prompt('де ти живеш?')
-
-// console.log(calcAge)
-
 
 
 
@@ -63,43 +57,6 @@ alert((`${calcUserAge}, ${userCityAlert}, ${userHobbyAlert}`));
 
 
 
-
-
-
-
-// switch (userAge && userAge.trim() && String(+userAge)) {
-// 	case null:
-// 			alert('Шкода, що Ви не захотіли ввести свій рік народження');
-// 			break;
-// 	case '':
-// 			alert('Шкода, що Ви не захотіли ввести свій рік народження');
-// 			break
-// 	case 'NaN':
-// 			console.log('number is Ba_NaN');
-// 			break;
-// 	default:
-// 		alert (2023 - userAge)
-// }
-
-// switch (userCity) {
-//   case "Kyiv":
-//   case "Київ":
-//   case "Киев":
-//     alert(`Ти живеш у столиці України`);
-//     break;
-//   case "Washington":
-//   case "Вашингтон":
-//     alert(`Ти живеш у столиці США`);
-//     break;
-//   case "London":
-//   case "Лондон":
-//     alert(`Ти живеш у столиці Англії`);
-//     break;
-//   default:
-// 		alert(`Ти живеш у місті ${userCity}`)
-// }
-
-// alert(a  + d )
 
 
 
