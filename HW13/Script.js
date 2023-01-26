@@ -91,7 +91,7 @@ console.log(result3)
 //9.Найти произведение положительных элементов.
 const num2 = arr
 		.filter(elem =>(elem>0))
-		.reduce((acc, rec) => acc * rec);
+		.reduce((acc, rec) => acc * rec)
 console.log(num2);
 
 
@@ -110,4 +110,4 @@ for (let i = 1; i < arr.length; i++) {
   }
 }
 
-console.log(arr);
+console.log(arr)
