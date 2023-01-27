@@ -6,12 +6,11 @@ const arr = [16, -37, 54, -4, 72, -56, 47, 4, -16, 25, -37, 46, 4, -51, 27, -63,
 //1.Найти сумму и количество положительных элементов.
 let result = 0
 const num = arr.filter(elem =>(elem>0))
-for(let i = 0; i < arr.length; i++){
-	if (arr[i] > 0) {
-		result += arr[i]
-	}
-}
-console.log('Сумма:', result, 'Количество положительных элементов:', num.length)
+const sumWithInitial = num.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  result
+);
+console.log('Сумма:', sumWithInitial, 'Количество положительных элементов:', num.length)
 
 
 
@@ -41,8 +40,7 @@ console.log(positive.length)
 
 //5.Найти количество нечетных положительных элементов
 const res = arr
-			.filter( (num) => num%2 )
-			.filter(elem =>(elem>0))
+				.filter(num => num%2 && num > 0)
 console.log(res.length)
 
 
@@ -50,8 +48,7 @@ console.log(res.length)
 
 //6.Найти количество парных положительных частей.
 const res2 = arr
-			.filter(elem => elem % 2 == 0)
-			.filter(elem =>(elem>0))
+			.filter(num => num % 2 == 0 && num > 0)
 console.log(res2.length)
 
 
@@ -60,14 +57,12 @@ console.log(res2.length)
 //7.Найти сумму четных положительных элементов.
 let result2 = 0 
 const sumEven = arr
-				.filter(elem => elem % 2 == 0)
-				.filter(elem =>(elem>0))
-				for(let i = 0; i < sumEven.length; i++){
-					if (sumEven[i] > 0) {
-						result2 += sumEven[i]
-					}
-				}
-console.log(result2)
+				.filter(num => num % 2 == 0 && num > 0)
+				const sumWithInitial2 = sumEven.reduce(
+					(accumulator, currentValue) => accumulator + currentValue,
+					result2
+				);
+console.log(sumWithInitial2)
 
 
 
@@ -75,29 +70,26 @@ console.log(result2)
 //8.Найти сумму нечетных положительных элементов.
 let result3 = 0
 const sumOdd= arr
-			.filter( (num) => num%2 )
-			.filter(elem =>(elem>0))
-			for(let i = 0; i < sumOdd.length; i++){
-				if (sumOdd[i] > 0) {
-					result3 += sumOdd[i]
-				}
-			}
-
-console.log(result3)
+			.filter(num => num%2 && num > 0)
+			const sumWithInitial3 = sumOdd.reduce(
+				(accumulator, currentValue) => accumulator + currentValue,
+				result3
+			);
+console.log(sumWithInitial3)
 
 
 
 
 //9.Найти произведение положительных элементов.
 const num2 = arr
-		.filter(elem =>(elem>0))
-		.reduce((acc, rec) => acc * rec)
+					.filter(elem =>(elem>0))
+					.reduce((acc, rec) => acc * rec);
 console.log(num2);
 
 
 
 
-//10.
+//10.Найти наибольший среди элементов массива, остальные обнулить
 let max2 = arr[0]
 let maxi = 0
 for (let i = 1; i < arr.length; i++) {
@@ -110,4 +102,4 @@ for (let i = 1; i < arr.length; i++) {
   }
 }
 
-console.log(arr)
+console.log(arr);
