@@ -6,6 +6,10 @@ function Car() {
   this.brake = function () {
     console.log("Торможение автомобиля");
   };
+
+  this.openDoors = function () {
+    console.log("Открытие дверей автомобиля");
+  };
 }
 
 function Lamborghini() {
@@ -19,7 +23,14 @@ function Lamborghini() {
 Lamborghini.prototype = Object.create(Car.prototype);
 Lamborghini.prototype.constructor = Lamborghini;
 
-const lamborghini = new Lamborghini();
-lamborghini.drive();
-lamborghini.brake();
-lamborghini.openDoors();
+let myLambo = new Lamborghini();
+
+myLambo.drive();
+myLambo.brake();
+myLambo.openDoors();
+
+let myCar = new Car();
+
+myCar.drive();
+myCar.brake();
+myCar.openDoors();
