@@ -1,45 +1,95 @@
-class Person {
-  constructor(name, age) {
-    this.name = name;
-    this.age = age;
+class Student {
+  constructor(firstName, lastName, birthYear) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.birthYear = birthYear;
+    this.grades = [];
+    this.attendance = new Array(90);
+    this.attendance.fill(null);
+    this.numOfClasses = 1;
+    this.numOfPresent = 2;
   }
 
-  info() {
-    console.log(`Ім'я: ${this.name} Вік: ${this.age}`);
-  }
-}
-
-class Car {
-  constructor(make, model, year, licensePlate, person) {
-    this.make = make;
-    this.model = model;
-    this.year = year;
-    this.licensePlate = licensePlate;
-    if (person.age >= 18) {
-      this.person = person;
-    } else {
-      console.log("Власник повинен бути старше 18 років");
+  present() {
+    if (this.numOfClasses >= 25) {
+      console.log("Ви вже відвідали всі заняття!");
+      return;
     }
+    this.attendance[this.numOfClasses] = true;
+    this.numOfClasses++;
+    this.numOfPresent++;
   }
-  getInfo() {
-    console.log(
-      `Марка: ${this.make} Модель:  ${this.model} Рік випуску:  ${this.year} Номерний знак:  ${this.licensePlate} `
-    );
-    console.log("Інформація про власника:");
-    this.person.info();
+
+  absent() {
+    if (this.numOfClasses >= 25) {
+      console.log("Ви вже відвідали всі заняття!");
+      return;
+    }
+    this.attendance[this.numOfClasses] = false;
+    this.numOfClasses++;
+  }
+
+  getAge() {
+    const currentYear = new Date().getFullYear();
+    return currentYear - this.birthYear;
+  }
+
+  getAverageGrade() {
+    if (this.grades.length === 0) {
+      return null;
+    }
+    const sum = this.grades.reduce((acc, grade) => acc + grade, 0);
+    return sum / this.grades.length;
+  }
+
+  getAttendancePercentage() {
+    if (this.numOfClasses === 0) {
+      return null;
+    }
+    return this.numOfPresent / this.numOfClasses;
+  }
+  
+  summary() {
+    const averageGrade = this.getAverageGrade();
+    console.log(averageGrade)
+    const attendancePercentage = this.getAttendancePercentage();
+    console.log(attendancePercentage)
+    let message = "";
+    if (averageGrade === null || attendancePercentage === null) {
+      message = "error";
+    } else if (averageGrade > 90 && attendancePercentage > 0.9) {
+      message = "Молодець!";
+    } else if (averageGrade > 90 || attendancePercentage > 0.9) {
+      message = "Добре, але можна краще";
+    } else {
+      message = "Редиска!";
+    }
+    console.log(message);
   }
 }
 
-const person = new Person("Іван", 45);
-const person2 = new Person("Марія", 21);
-const person3 = new Person("Олексій", 15);
+const student1 = new Student("John", "Doe", 2004);
+const student2 = new Student("Jane", "Smith", 2010,);
 
-person.info();
-person2.info();
-person3.info();
 
-const car1 = new Car("Toyota", "Camry", 2010, "BC1234", person);
-const car2 = new Car("Honda", "Accord", 2015, "AB5678", person2);
 
-car1.getInfo();
-car2.getInfo();
+
+student1.present();
+student1.present();
+student1.absent();
+student2.present();
+student2.absent();
+student2.present();
+student2.present();
+student2.present();
+student2.present();
+
+student1.grades.push(85, 92, 88 );
+student2.grades.push(100, 100, 100, 100,);
+
+
+const summary = student2.summary();
+
+
+console.log(student1.getAge());
+console.log(student2.getAge());
