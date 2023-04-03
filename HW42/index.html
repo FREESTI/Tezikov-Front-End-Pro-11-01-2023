@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ДЗ 41</title>
+</head>
+<body>
+	<form>
+		<label for="name">Ім'я:</label>
+		<input type="text" id="name" name="name"><br><br>
+	<label for="surname">Прізвище:</label>
+  <input type="text" id="surname" name="surname"><br><br>
+
+  <label for="birthdate">Дата народження:</label>
+  <input type="text" id="birthdate" name="birthdate"><br><br>
+
+  <label for="gender">Стать:</label>
+  <input type="radio" id="male" name="gender" value="male">
+  <label for="male">Чоловік</label>
+  <input type="radio" id="female" name="gender" value="female">
+  <label for="female">Жінка</label><br><br>
+
+  <label for="city">Місто:</label>
+  <select id="city" name="city">
+    <option value="kyiv">Київ</option>
+    <option value="lviv">Львів</option>
+    <option value="odesa">Одеса</option>
+    <option value="kharkiv">Харків</option>
+  </select><br><br>
+
+  <label for="address">Адреса:</label>
+  <textarea id="address" name="address"></textarea><br><br>
+
+  <label for="languages">Мови, якими володіє:</label>
+  <input type="checkbox" id="ukrainian" name="languages[]" value="ukrainian">
+  <label for="ukrainian">Українська</label>
+  <input type="checkbox" id="russian" name="languages[]" value="russian">
+  <label for="russian">Російська</label>
+  <input type="checkbox" id="english" name="languages[]" value="english">
+  <label for="english">Англійська</label><br><br>
+
+  <button type="button" onclick="submitForm()">Зберегти</button>
+</form>
+
+<div id="output"></div>
+	<script src="./Script.js"></script>
+</body>
+</html>
