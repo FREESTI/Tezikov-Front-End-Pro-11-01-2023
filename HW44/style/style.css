@@ -1,0 +1,89 @@
+body {
+  background-color: #1a1a1a;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #fff;
+}
+
+label {
+  color: #fff;
+}
+
+
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+  width: 300px;
+  height: 40px;
+  font-size: 16px;
+  padding: 5px;
+  margin: 10px auto;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form {
+  text-align: center;
+}
+
+select {
+  background-color: #333;
+  color: #fff;
+  border-color: #555;
+}
+
+.order-summary {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #555;
+  padding: 10px;
+}
+
+
+.hidden {
+  display: none;
+}
+
+
+.order-form,
+.order-summary {
+  max-width: 600px;
+  margin: 0 auto;
+}
+#order-form {
+  text-align: center;
+}
+
+button {
+  background-color: #4CAF50; 
+  border: none;
+  color: white; 
+  padding: 5px 10px;
+  text-align: center; 
+  text-decoration: none; 
+  display: inline-block;
+  font-size: 16px; 
+  border-radius: 5px;
+  transition-duration: 0.3s;
+}
+
+button:hover {
+  background-color: #3e8e41; 
+  color: white;
+}
+.buy-button{
+  margin-bottom: 30px;
+}
+
+
