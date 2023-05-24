@@ -1,26 +1,16 @@
-import React, { useState } from 'react';
+import React from "react";
 
-function TodoForm({ addTodo }) {
-  const [text, setText] = useState('');
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (text.trim()) {
-      addTodo(text.trim());
-      setText('');
-    }
-  };
-
+const TodoForm = ({ text, setText, handleSubmit }) => {
   return (
     <form onSubmit={handleSubmit}>
       <input
         type="text"
         value={text}
-        onChange={(event) => setText(event.target.value)}
+        onChange={(e) => setText(e.target.value)}
       />
-      <button type="submit">Добавить</button>
+      <button type="submit">добавить</button>
     </form>
   );
-}
+};
 
 export default TodoForm;
