@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Назва товару - Інтернет-магазин</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<header>
+		<h1>Назва товару</h1>
+		<nav>
+			<ul>
+				<li><a href="#">Головна</a></li>
+				<li><a href="#">Контакти</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<main>
+			<div class="product">
+				<h3>Product 1</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae urna eget nibh euismod consectetur.</p>
+				<span class="price">$50.00</span>
+				<button class="buy-button" onclick="selectProduct('Product 1', 50.00)">Select</button>
+			</div>
+		
+			<div class="product">
+				<h3>Product 2</h3>
+				<p>Phasellus eu enim eget augue placerat convallis a sit amet arcu.</p>
+				<span class="price">$75.00</span>
+				<button class="buy-button" onclick="selectProduct('Product 2', 75.00)">Select</button>
+			</div>
+		
+			<div class="product">
+				<h3>Product 3</h3>
+				<p>Vestibulum vel magna vitae mi laoreet semper a sit amet sapien.</p>
+				<span class="price">$100.00</span>
+				<button class="buy-button" onclick="selectProduct('Product 3', 100.00)">Select</button>
+			</div>
+		
+			<div class="order-form">
+				<!-- order form code here -->
+			</div>
+		</main>
+		
+		
+
+		<div class="order-form">
+			<h2>Оформлення замовлення</h2>
+			<form>
+				<label for="name">ПІБ покупця:</label>
+				<input type="text" id="name" name="name" required>
+
+				<label for="city">Місто:</label>
+				<select id="city" name="city" required>
+					<option value="Київ">Київ</option>
+					<option value="Харків">Харків</option>
+					<option value="Львів">Львів</option>
+					<option value="Одеса">Одеса</option>
+				</select>
+
+				<label for="nova-poshta-warehouse">Склад Нової пошти для надсилання:</label>
+				<input type="text" id="nova-poshta-warehouse" name="nova-poshta-warehouse" required>
+
+				<label for="payment-method">Тип оплати:</label>
+				<select id="payment-method" name="payment-method" required>
+					<option value="Післяплата">Післяплата</option>
+					<option value="Оплата банківською карткою">Оплата банківською карткою</option>
+				</select>
+
+				<label for="quantity">Кількість:</label>
+				<input type="number" id="quantity" name="quantity" value="1" min="1" max="10" required>
+
+				<label for="comment">Коментар до замовлення:</label>
+				<textarea id="comment" name="comment" rows="4" cols="50"></textarea>
+
+				<input type="submit" value="Підтвердити замовлення">
+			</form>
+			<div class="error-message"></div>
+		</div>
+	</main>
+<script src="Script.js"></script>
+</body>
+</html>

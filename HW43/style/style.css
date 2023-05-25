@@ -1,0 +1,9 @@
+body{
+	display: flex;
+}
+.products {
+	margin-left: 50px
+}
+.product-info {
+	margin-left: 50px
+}
