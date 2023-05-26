@@ -1,0 +1,39 @@
+export const fetchDataBegin = () => {
+  return {
+    type: "FETCH_DATA_BEGIN",
+  };
+};
+
+export const fetchDataSuccess = (data) => {
+  return {
+    type: "FETCH_DATA_SUCCESS",
+    payload: data,
+  };
+};
+
+export const fetchDataFailure = (error) => {
+  return {
+    type: "FETCH_DATA_FAILURE",
+    payload: error,
+  };
+};
+
+export const fetchData = (formData) => {
+  return (dispatch) => {
+    dispatch(fetchDataBegin());
+
+    return fetch("https://mockapi.io/api/v1/data", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch(fetchDataSuccess(data));
+        return data;
+      })
+      .catch((error) => dispatch(fetchDataFailure(error)));
+  };
+};
