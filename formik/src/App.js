@@ -1,10 +1,10 @@
-import React from 'react';
-import Form from './components/Form'; // Обновленный путь импорта
+import React from "react";
+import Form from "./components/Form";
 
 const App = () => {
   return (
     <div>
-      <h1>Форма</h1>
+      <h1>My Form</h1>
       <Form />
     </div>
   );
