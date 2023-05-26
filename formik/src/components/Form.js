@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { fetchData } from "../redux/actions";
 
 const Form = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
+  const dispatch = useDispatch();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [errors, setErrors] = useState({});
 
   const validateEmail = (email) => {
-    // Валідація формату електронної пошти
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
   };
 
   const validatePhone = (phone) => {
-    // Валідація номеру телефону
     const re = /^\d{12}$/;
     return re.test(phone);
   };
@@ -21,38 +22,38 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Перевірка наявності значень у полях
-    if (name.trim() === '') {
-      setErrors({ name: 'Будь ласка, введіть ваше ім\'я' });
+    if (name.trim() === "") {
+      setErrors({ name: "Будь ласка, введіть ваше ім'я" });
       return;
     }
-    if (email.trim() === '') {
-      setErrors({ email: 'Будь ласка, введіть вашу електронну пошту' });
+    if (email.trim() === "") {
+      setErrors({ email: "Будь ласка, введіть вашу електронну пошту" });
       return;
     }
-    if (phone.trim() === '') {
-      setErrors({ phone: 'Будь ласка, введіть ваш номер телефону' });
+    if (phone.trim() === "") {
+      setErrors({ phone: "Будь ласка, введіть ваш номер телефону" });
       return;
     }
 
-    // Перевірка формату електронної пошти
     if (!validateEmail(email)) {
-      setErrors({ email: 'Будь ласка, введіть коректну електронну пошту' });
+      setErrors({ email: "Будь ласка, введіть коректну електронну пошту" });
       return;
     }
 
-    // Перевірка формату номеру телефону
     if (!validatePhone(phone)) {
-      setErrors({ phone: 'Будь ласка, введіть коректний номер телефону (12 цифр)' });
+      setErrors({
+        phone: "Будь ласка, введіть коректний номер телефону (12 цифр)",
+      });
       return;
     }
 
-    // Очистка полів та виведення повідомлення про успішну відправку
-    setName('');
-    setEmail('');
-    setPhone('');
+    dispatch(fetchData({ name, email, phone }));
+
+    setName("");
+    setEmail("");
+    setPhone("");
     setErrors({});
-    alert('Форма успішно відправлена!');
+    alert("Форма успішно відправлена!");
   };
 
   return (
